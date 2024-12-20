@@ -49,3 +49,6 @@ Requirements:
 	- Use Spotify on a desktop and find the playlists/artists/songs/stations you want to program in.  Click the three dots, and press the control button on your keyboard while clicking "Share"
 	- The "Copy URL" menu button in  Spotify will change to a URI.  Click "Copy URI"
 	- Use this URI to replace the Spotify links in the YAML
+
+https://github.com/user-attachments/assets/68fab1e1-2423-4347-a4d1-25cf213ecccc
+
