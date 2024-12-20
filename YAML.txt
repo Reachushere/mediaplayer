@@ -1,0 +1,1618 @@
+type: picture-elements
+elements:
+  - type: custom:mini-media-player
+    description: Background Artwork - Top
+    entity: media_player.spotifyplus_SpotifyAccountName
+    artwork: full-cover-fit
+    scale: "1"
+    tap_action: false
+    hide:
+      name: true
+      icon: true
+      info: true
+      power: true
+      source: true
+      sound_mode: true
+      group_button: true
+      controls: false
+      prev: true
+      next: true
+      play_pause: true
+      play_stop: true
+      jump: true
+      volume: true
+      volume_level: true
+      mute: true
+      progress: true
+      runtime: true
+      runtime_remaining: true
+      artwork_border: true
+      power_state: true
+      icon_state: true
+      shuffle: true
+      repeat: true
+      state_label: true
+    style:
+      top: 5.2%
+      left: 22%
+      width: 8.5%
+      height: 8.5%
+    card_mod:
+      style:
+        ha-card: |
+          border-radius: 24px;
+          border: none;
+          transform: scale(.4,.25);
+          }
+  - type: custom:mini-media-player
+    description: Background Artwork
+    entity: media_player.spotifyplus_SpotifyAccountName
+    artwork: full-cover-fit
+    scale: "1"
+    tap_action: false
+    hide:
+      name: true
+      icon: true
+      info: true
+      power: true
+      source: true
+      sound_mode: true
+      group_button: true
+      controls: false
+      prev: true
+      next: true
+      play_pause: true
+      play_stop: true
+      jump: true
+      volume: true
+      volume_level: true
+      mute: true
+      progress: true
+      runtime: true
+      runtime_remaining: true
+      artwork_border: true
+      power_state: true
+      icon_state: true
+      shuffle: true
+      repeat: true
+      state_label: true
+    style:
+      top: 35%
+      left: 49%
+      width: 35%
+      height: 35%
+    card_mod:
+      style:
+        ha-card: |
+          div.mmp__bg {
+            filter: blur(8px) grayscale(50%) brightness(0.6);
+          }
+          border-radius: 24px;
+          border: none;
+          transform: scale(.4,.25);
+          }
+  - type: custom:mini-media-player
+    description: Progress Timer
+    entity: media_player.spotifyplus_SpotifyAccountName
+    artwork: none
+    background: none
+    scale: "2"
+    mini-media-player-background-opacity: "0"
+    mini-media-player-overlay-color: rgba(0,0,0,0)
+    mini-media-player-overlay-color-stop: 100%
+    mini-media-player-progress-height: 10px
+    hide:
+      name: true
+      icon: true
+      info: true
+      power: true
+      source: true
+      sound_mode: true
+      group_button: true
+      controls: true
+      prev: true
+      next: true
+      play_pause: true
+      play_stop: true
+      jump: true
+      volume: true
+      volume_level: true
+      mute: true
+      progress: false
+      runtime: false
+      runtime_remaining: true
+      artwork_border: true
+      power_state: true
+      icon_state: true
+      shuffle: true
+      repeat: true
+      state_label: true
+    style:
+      top: 82%
+      height: 110px
+      transform: scale(.8,.8)
+      "--mmp-text-color": "#ffffffba"
+    card_mod:
+      style: |
+        @keyframes slideright {
+          from {left: -155%;}
+          to {left: 41.5%;}
+        }
+        @keyframes slideleft {
+          from {left: 41.5%;}
+          to {left: -155%;}
+        }
+        @keyframes widthadd {
+          from {width: 293px;}
+          to {width: 382px;}
+        }
+        @keyframes widthminus {
+          from {width: 382px;}
+          to {width: 293px;}
+        }
+        :host {
+          {% if is_state("input_boolean.rx_stereo_menu", "off") %}
+            animation: slideleft 0.5s ease normal forwards, widthadd 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% else %}
+            animation: slideright 0.5s ease normal forwards, widthminus 0.5s ease normal forwards !important;
+          {% endif %}
+        }
+        ha-card>div.mmp__bg {
+          background: none;
+          border: none;
+        }
+        ha-card {
+          border-color: transparent !important;
+          box-shadow: none !important;
+          border-style: none !important;
+          border: none !important;
+          --card-background-color: rgba(255,255,255,0);
+        }
+  - type: custom:mini-media-player
+    description: FWD / RWD Buttons
+    entity: media_player.spotifyplus_SpotifyAccountName
+    artwork: none
+    background: none
+    scale: "1.5"
+    mini-media-player-background-opacity: "0"
+    mini-media-player-overlay-color: rgba(0,0,0,0)
+    mini-media-player-overlay-color-stop: 100%
+    mini-media-player-progress-height: 10px
+    hide:
+      name: true
+      icon: true
+      info: true
+      power: true
+      source: true
+      sound_mode: true
+      group_button: true
+      controls: false
+      prev: false
+      next: false
+      play_pause: true
+      play_stop: true
+      jump: true
+      volume: true
+      volume_level: true
+      mute: true
+      progress: true
+      runtime: true
+      runtime_remaining: true
+      artwork_border: true
+      power_state: true
+      icon_state: true
+      shuffle: true
+      repeat: true
+      state_label: true
+    style:
+      top: 93%
+      height: 80px
+    card_mod:
+      style: |
+        @keyframes slideright {
+          from {left: -50%;}
+          to {left: 49.5%;}
+        }
+        @keyframes slideleft {
+          from {left: 49.5%;}
+          to {left: -50%;}
+        }
+        @keyframes widthadd {
+          from {width: 390px;}
+          to {width: 490px;}
+        }
+        @keyframes widthminus {
+          from {width: 490px;}
+          to {width: 390px;}
+        }
+        :host {
+          {% if is_state("input_boolean.rx_stereo_menu", "on") %}
+            animation: slideright 0.5s ease normal forwards, widthminus 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% else %}
+            animation: slideleft 0.5s ease normal forwards, widthadd 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% endif %}
+          border: none;
+        }
+        ha-card>div.mmp__bg {
+          background: none;
+          border: none;
+        }
+        ha-card {
+          border-color: transparent !important;
+          box-shadow: none !important;
+          border-style: none !important;
+          border: none !important;
+          --card-background-color: rgba(255,255,255,0);
+        }
+  - type: custom:mini-media-player
+    description: Play/Pause button
+    entity: media_player.spotifyplus_SpotifyAccountName
+    artwork: none
+    background: none
+    scale: "3"
+    mini-media-player-background-opacity: "0"
+    mini-media-player-overlay-color: rgba(1,1,1,1)
+    mini-media-player-overlay-color-stop: 50%
+    mini-media-player-progress-height: 10px
+    hide:
+      name: true
+      icon: true
+      info: true
+      power: true
+      source: true
+      sound_mode: true
+      group_button: true
+      controls: false
+      prev: true
+      next: true
+      play_pause: false
+      play_stop: true
+      jump: true
+      volume: true
+      volume_level: true
+      mute: true
+      progress: true
+      runtime: true
+      runtime_remaining: true
+      artwork_border: true
+      power_state: true
+      icon_state: true
+      shuffle: true
+      repeat: true
+      state_label: true
+    style:
+      top: 91%
+      height: 40px
+      width: 40px
+      transform: scale(.8,.8)
+      display: flex
+      justify-content: center
+      align-items: center
+    card_mod:
+      style: |
+        @keyframes slideright {
+          from {left: -50%;}
+          to {left: 48.3%;}
+        }
+        @keyframes slideleft {
+          from {left: 48.3%;}
+          to {left: -50%;}
+        }
+        :host {
+          {% if is_state("input_boolean.rx_stereo_menu", "on") %}
+            animation: slideright 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% else %}
+            animation: slideleft 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% endif %}
+          --mini-media-player-button-color: rgba(1,1,1,1);
+        }
+        .entity__icon {
+          --mdc-icon-size: 80px !important;
+          --mdc-icon-color: rgba(1,1,1,1);
+        }
+        ha-card>div.mmp__bg {
+          background: none;
+          border: none;
+          color: rgba(1,1,1,1);
+        }
+        ha-card {
+          border-color: transparent !important;
+          box-shadow: none !important;
+          border-style: none !important;
+          border: none !important;
+        }
+  - type: custom:mini-media-player
+    description: Power Button
+    volume_stateless: false
+    entity: media_player.spotifyplus_SpotifyAccountName
+    toggle_power: false
+    artwork: none
+    scale: "0.25"
+    source: icon
+    sound_mode: full
+    replace_mute: stop
+    info: none
+    hide:
+      power: false
+      source: true
+      name: true
+      info: true
+      play_stop: true
+      progress: false
+      controls: true
+      volume: true
+      volume_level: true
+      artwork_border: true
+      icon: true
+    style:
+      left: 2%
+      top: 2.25%
+      width: 40px
+      transform: scale(8,8)
+    card_mod:
+      style: |
+        @keyframes slideright {
+          from {left: -50%;}
+          to {left: 1%;}
+        }
+        @keyframes slideleft {
+          from {left: 1%;}
+          to {left: -50%;}
+        }
+        :host {
+          {% if is_state("input_boolean.rx_stereo_menu", "on") %}
+            animation: slideright 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% else %}
+            animation: slideleft 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% endif %}
+          --mini-media-player-button-color: rgba(1,1,1,1);
+        }
+        .entity__icon {
+          --mdc-icon-size: 1220px !important;
+          --mdc-icon-color: rgba(1,1,1,1);
+        }
+        ha-card>div.mmp__bg {
+          background: none;
+          border: none;
+          color: rgba(1,1,1,1);
+        }
+        ha-card {
+          border-color: transparent !important;
+          box-shadow: none !important;
+          border-style: none !important;
+          border: none !important;
+          --card-background-color: rgba(255,255,255,0);
+        }
+  - type: custom:mini-media-player
+    description: Repeat Button
+    entity: media_player.spotifyplus_SpotifyAccountName
+    artwork: none
+    background: none
+    scale: "1.2"
+    mini-media-player-background-opacity: "0"
+    mini-media-player-overlay-color: rgba(0,0,0,0)
+    mini-media-player-overlay-color-stop: 100%
+    mini-media-player-progress-height: 10px
+    hide:
+      name: true
+      icon: true
+      info: true
+      power: true
+      source: true
+      sound_mode: true
+      group_button: true
+      controls: false
+      prev: true
+      next: true
+      play_pause: true
+      play_stop: true
+      jump: true
+      volume: true
+      volume_level: true
+      mute: true
+      progress: true
+      runtime: true
+      runtime_remaining: true
+      artwork_border: true
+      power_state: true
+      icon_state: true
+      shuffle: true
+      repeat: false
+      state_label: true
+    style:
+      top: 93.5%
+      height: 40px
+      width: 40px
+      display: flex
+      justify-content: center
+      align-items: center
+    card_mod:
+      style: |
+        @keyframes slideright {
+          from {left: -50%;}
+          to {left: 24%;}
+        }
+        @keyframes slideleft {
+          from {left: 24%;}
+          to {left: -50%;}
+        }
+        :host {
+          {% if is_state("input_boolean.rx_stereo_menu", "on") %}
+            animation: slideright 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% else %}
+            animation: slideleft 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% endif %}
+        }
+        ha-card>div.mmp__bg {
+          background: none;
+        }
+        ha-card {
+          border-color: transparent !important;
+          box-shadow: none !important;
+          border-style: none !important;
+          border: none !important;
+          --card-background-color: rgba(255,255,255,0);
+        }
+  - type: custom:mini-media-player
+    description: Shuffle button
+    entity: media_player.spotifyplus_SpotifyAccountName
+    artwork: none
+    background: none
+    scale: "1.2"
+    mini-media-player-background-opacity: "0"
+    mini-media-player-overlay-color: rgba(0,0,0,0)
+    mini-media-player-overlay-color-stop: 100%
+    mini-media-player-progress-height: 10px
+    hide:
+      name: true
+      icon: true
+      info: true
+      power: true
+      source: true
+      sound_mode: true
+      group_button: true
+      controls: false
+      prev: true
+      next: true
+      play_pause: true
+      play_stop: true
+      jump: true
+      volume: true
+      volume_level: true
+      mute: true
+      progress: true
+      runtime: true
+      runtime_remaining: true
+      artwork_border: true
+      power_state: true
+      icon_state: true
+      shuffle: false
+      repeat: true
+      state_label: true
+    style:
+      top: 94%
+      height: 40px
+      width: 40px
+      display: flex
+      justify-content: center
+      align-items: center
+    card_mod:
+      style: |
+        @keyframes slideright {
+          from {left: -50%;}
+          to {left: 75%;}
+        }
+        @keyframes slideleft {
+          from {left: 75%;}
+          to {left: -50%;}
+        }
+        :host {
+          {% if is_state("input_boolean.rx_stereo_menu", "on") %}
+            animation: slideright 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% else %}
+            animation: slideleft 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% endif %}
+        }
+        ha-card>div.mmp__bg {
+          background: none;
+        }
+        ha-card {
+          border-color: transparent !important;
+          box-shadow: none !important;
+          border-style: none !important;
+          border: none !important;
+          --card-background-color: rgba(255,255,255,0);
+        }
+  - type: custom:layout-card
+    description: Left Menu
+    layout_type: grid
+    layout:
+      grid-template-columns: 240px 630px auto
+      grid-template-rows: 630px
+      grid-template-areas: |
+        "menu card text"
+    cards:
+      - type: vertical-stack
+        view_layout:
+          grid-area: menu
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Playlists
+            secondary: " "
+            icon: mdi:playlist-music-outline
+            multiline_secondary: false
+            fill_container: false
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              target:
+                entity_id: input_select.rx_stereo_menu_list
+              data:
+                option: Playlists
+            card_mod:
+              style: |
+                ha-card {
+                  --card-primary-font-size: 22px;
+                  --card-primary-line-height: 24px;
+                  --card-primary-color: #ffffffb8;
+                  background: none !important;
+                  box-shadow: none !important;
+                  padding: 10px 10px 0px 5px !important;
+                  border: none;
+                }
+                mushroom-shape-icon {
+                  --shape-color: transparent !important;
+                  --shape-color-disabled: transparent !important;
+                  padding: 0px 0px 0px 0px !important;
+                  border: none;
+                }
+                :host {
+                  --mush-icon-symbol-size: 0.75em;
+                  border: none;
+                }
+          - type: custom:mushroom-template-card
+            primary: Devices
+            secondary: " "
+            icon: mdi:devices
+            multiline_secondary: false
+            fill_container: false
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              target:
+                entity_id: input_select.rx_stereo_menu_list
+              data:
+                option: Devices
+            card_mod:
+              style: |
+                ha-card {
+                  --card-primary-font-size: 22px;
+                  --card-primary-line-height: 24px;
+                  --card-primary-color: #ffffffb8;
+                  background: none !important;
+                  box-shadow: none !important;
+                  padding: 10px 10px 0px 5px !important;
+                  border: none;
+                }
+                mushroom-shape-icon {
+                  --shape-color: transparent !important;
+                  --shape-color-disabled: transparent !important;
+                  padding: 0px 0px 0px 0px !important;
+                  border: none;
+                }
+                :host {
+                  --mush-icon-symbol-size: 0.75em;
+                  border: none;
+                }
+          - type: custom:mushroom-template-card
+            primary: Artists
+            secondary: " "
+            icon: mdi:account-music
+            multiline_secondary: false
+            fill_container: false
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              target:
+                entity_id: input_select.rx_stereo_menu_list
+              data:
+                option: Artists
+            card_mod:
+              style: |
+                ha-card {
+                  --card-primary-font-size: 22px;
+                  --card-primary-line-height: 24px;
+                  --card-primary-color: #ffffffb8;
+                  background: none !important;
+                  box-shadow: none !important;
+                  padding: 10px 10px 0px 5px !important;
+                  border: none;
+                }
+                mushroom-shape-icon {
+                  --shape-color: transparent !important;
+                  --shape-color-disabled: transparent !important;
+                  padding: 0px 0px 0px 0px !important;
+                  border: none;
+                }
+                :host {
+                  --mush-icon-symbol-size: 0.75em;
+                  --mush-icon-symbol-color: white;
+                  border: none;
+                }
+          - type: custom:mushroom-template-card
+            primary: Tracks
+            secondary: " "
+            icon: mdi:file-music
+            multiline_secondary: false
+            fill_container: false
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              target:
+                entity_id: input_select.rx_stereo_menu_list
+              data:
+                option: Tracks
+            card_mod:
+              style: |
+                ha-card {
+                  --card-primary-font-size: 22px;
+                  --card-primary-line-height: 24px;
+                  --card-primary-color: #ffffffb8;
+                  background: none !important;
+                  box-shadow: none !important;
+                  padding: 10px 10px 0px 5px !important;
+                  border: none;
+                }
+                mushroom-shape-icon {
+                  --shape-color: transparent !important;
+                  --shape-color-disabled: transparent !important;
+                  padding: 0px 0px 0px 0px !important;
+                  border: none;
+                }
+                :host {
+                  --mush-icon-symbol-size: 0.75em;
+                  border: none;
+                }
+          - type: custom:mushroom-template-card
+            primary: Stations
+            secondary: " "
+            icon: mdi:radio
+            multiline_secondary: false
+            fill_container: false
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              target:
+                entity_id: input_select.rx_stereo_menu_list
+              data:
+                option: Stations
+            card_mod:
+              style: |
+                ha-card {
+                  --card-primary-font-size: 22px;
+                  --card-primary-line-height: 24px;
+                  --card-primary-color: #ffffffb8;
+                  background: none !important;
+                  box-shadow: none !important;
+                  padding: 10px 10px 0px 5px !important;
+                  border: none;
+                }
+                mushroom-shape-icon {
+                  --shape-color: transparent !important;
+                  --shape-color-disabled: transparent !important;
+                  padding: 0px 0px 0px 0px !important;
+                  border: none;
+                }
+                :host {
+                  --mush-icon-symbol-size: 0.75em;
+                  border: none;
+                }
+        card_mod:
+          style: |
+            :host {
+              box-shadow: none !important;
+              border: none;
+            }
+      - type: custom:state-switch
+        description: Menu content cards
+        view_layout:
+          grid-area: card
+          align-items: center
+        entity: input_select.rx_stereo_menu_list
+        transition: flip-x
+        states:
+          CoverArt:
+            type: custom:hui-element
+            card_type: custom:mini-media-player
+            entity: media_player.spotify_SpotifyAccountName
+            artwork: full-cover
+            scale: "1"
+            hide:
+              name: true
+              icon: true
+              info: true
+              power: true
+              source: true
+              sound_mode: true
+              group_button: true
+              controls: true
+              prev: true
+              next: true
+              play_pause: true
+              play_stop: true
+              jump: true
+              volume: true
+              volume_level: true
+              mute: true
+              progress: true
+              runtime: true
+              runtime_remaining: true
+              artwork_border: true
+              power_state: true
+              icon_state: true
+              shuffle: true
+              repeat: true
+              state_label: true
+            card_mod:
+              style: |
+                ha-card { 
+                  border-radius: 20px;
+                  padding-top: -8px !important;
+                  padding-bottom: -8px !important;
+                  max-width: 500px;
+                  max-height: 500px;
+                  border: none;
+                }
+                ha-card>div.mmp__bg {
+                  border-radius: 20px;
+                  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.30), 0 6px 8px 0 rgba(0, 0, 0, 0.20) !important;
+                  margin-top: 0px;
+                  margin-left: 0px;
+                  margin-bottom: 0px;
+                  border: none;
+                }
+                ha-card>div.mmp-player {
+                  background: none !important;
+                  border: none;
+                {
+          Playlists:
+            type: picture-elements
+            elements:
+              - type: custom:mini-media-player
+                description: Playlist song chooser
+                hide:
+                  power: true
+                  source: true
+                  name: true
+                  info: true
+                  play_stop: true
+                  progress: true
+                  controls: true
+                  volume: true
+                  volume_level: true
+                  artwork_border: true
+                  icon: true
+                artwork: none
+                source: full
+                sound_mode: full
+                info: scroll
+                entity: media_player.spotifyplus_SpotifyAccountName
+                shortcuts:
+                  label: Stations
+                  columns: 1
+                  buttons:
+                    - name: EASY LISTENING
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:album:4z9c733iiDiPLN
+                        random_song: true
+                        shuffle: true
+                    - name: JAZZ
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:album:21lF3TUC8NjQ4
+                        random_song: true
+                        shuffle: true
+                    - name: CLEANING
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:37i9dQZF1DWTPl
+                        random_song: true
+                        shuffle: true
+                    - name: DISNEY
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:37i9dQZF1DX8C
+                        random_song: true
+                        shuffle: true
+                    - name: THIS IS ME
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:album:7ayBZIe1FHkNv0
+                        random_song: true
+                        shuffle: true
+                    - name: CALM MY CAT
+                      type: script
+                      id: script.calm_my_cat
+                    - name: PITCH PERFECT
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:3BAPbSOURu
+                        random_song: true
+                        shuffle: true
+                    - name: GLEE
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:37i9dQZF1D
+                        random_song: true
+                        shuffle: true
+                    - name: THE GREATEST SHOWMAN
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:album:7ayBZIe1FHkNv0T
+                        random_song: true
+                        shuffle: true
+                    - name: OKINAWA SONGS
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:37i9dQZF1DWSy
+                        random_song: true
+                        shuffle: true
+                style:
+                  left: 6%
+                  top: 2%
+                  width: 90%
+                  transform: scale(1.3,1.3)
+                card_mod:
+                  style: |
+                    ha-card {
+                      border: none !important;
+                      --card-background-color: rgba(255,255,255,0);
+                      max-height: 500px !important;
+                      min-height: 500px !important;
+                    }
+                    :host {
+                      --mini-media-player-button-color: rgba(68 115 158,1);
+                    }
+            image: /local/Transparent.png
+            aspect_ratio: 0%
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  --card-background-color: rgba(255,255,255,0);
+                }
+                :host {
+                  --mini-media-player-button-color: rgba(68 115 158,1);
+                }
+          Devices:
+            type: picture-elements
+            elements:
+              - type: custom:mini-media-player
+                entity: media_player.spotifyplus_SpotifyAccountName
+                volume_stateless: true
+                toggle_power: false
+                artwork: none
+                source: full
+                sound_mode: full
+                replace_mute: stop
+                info: scroll
+                hide:
+                  power: true
+                  source: true
+                  name: true
+                  info: true
+                  play_stop: true
+                  progress: true
+                  controls: true
+                  volume: true
+                  volume_level: true
+                  artwork_border: true
+                  icon: true
+                shortcuts:
+                  label: DEVICES
+                  columns: 1
+                  buttons:
+                    - type: source
+                      name: EVERYWHERE
+                      id: Everywhere
+                    - name: KITCHEN LIVING ROOM
+                      type: source
+                      id: Kitchen LR
+                    - name: HALLWAY
+                      type: source
+                      id: Hallway
+                    - name: WASHROOM
+                      type: source
+                      id: Echo Show - Pug AM
+                    - name: KITCHEN
+                      type: source
+                      id: Kitchen
+                    - name: LIVING ROOM
+                      type: source
+                      id: Living Room
+                    - type: source
+                      name: KING BEDROOM
+                      id: King Bedroom
+                    - name: WASHROOM
+                      type: source
+                      id: Cat WR
+                    - name: CLOSET
+                      type: source
+                      id: Closet
+                style:
+                  left: 6%
+                  top: "-2%"
+                  width: 90%
+                  transform: scale(1.3,1.3)
+                card_mod:
+                  style: |
+                    ha-card {
+                      border: none !important;
+                      --card-background-color: rgba(255,255,255,0);
+                      max-height: 500px !important;
+                      min-height: 500px !important;
+                    }
+                    :host {
+                      --mini-media-player-button-color: rgba(68 115 158,1);
+                    }
+            image: /local/Transparent.png
+            aspect_ratio: 0%
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  --card-background-color: rgba(255,255,255,0);
+                }
+                :host {
+                  --mini-media-player-button-color: rgba(68 115 158,1);
+                }
+          Artists:
+            type: picture-elements
+            elements:
+              - type: custom:mini-media-player
+                description: track/song chooser
+                hide:
+                  power: true
+                  source: true
+                  name: true
+                  info: true
+                  play_stop: true
+                  progress: true
+                  controls: true
+                  volume: true
+                  volume_level: true
+                  artwork_border: true
+                  icon: true
+                artwork: none
+                source: full
+                sound_mode: full
+                info: scroll
+                entity: media_player.spotifyplus_SpotifyAccountName
+                shortcuts:
+                  label: Artists
+                  columns: 1
+                  buttons:
+                    - name: TAYLOR SWIFT
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:37i9dQZF1DX5Kp
+                        random_song: true
+                        shuffle: true
+                    - name: KELLY CLARKSON
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:37i9dQZF1DZ06
+                        random_song: true
+                        shuffle: true
+                    - name: PINK
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:37i9dQZF1DZ
+                        random_song: true
+                        shuffle: true
+                    - name: KATY PERRY
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:37i9dQZF1DZ06
+                        random_song: true
+                        shuffle: true
+                    - name: COLD PLAY
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:37i9dQZF1DXaQ
+                        random_song: true
+                        shuffle: true
+                    - name: ADELE
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:6TFHI1i8f8AyS
+                        random_song: true
+                        shuffle: true
+                    - name: MISIA
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:37i9dQZF1DZ06
+                        random_song: true
+                        shuffle: true
+                    - name: DUA LIPA
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:73pL7GHExZgUO
+                        random_song: true
+                        shuffle: true
+                    - name: CHER
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:0B0hDmloVKzml
+                        random_song: true
+                        shuffle: true
+                    - name: HIKARU ITADA
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Everywhere
+                        uri: spotify:playlist:37i9dQZF1DWUp
+                        random_song: true
+                        shuffle: true
+                style:
+                  left: 5%
+                  top: "-26%"
+                  width: 90%
+                  transform: scale(1.3,1.3)
+                card_mod:
+                  style: |
+                    ha-card {
+                      border: none !important;
+                      --card-background-color: rgba(255,255,255,0);
+                      max-height: 700px !important;
+                      min-height: 650px !important;
+                    }
+                    :host {
+                      --mini-media-player-button-color: rgba(68 115 158,1);
+                    }
+            image: /local/Transparent.png
+            aspect_ratio: 0%
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  --card-background-color: rgba(255,255,255,0);
+                }
+                :host {
+                  --mini-media-player-button-color: rgba(68 115 158,1);
+                }
+          Tracks:
+            type: picture-elements
+            elements:
+              - type: custom:mini-media-player
+                description: track/song chooser
+                hide:
+                  power: true
+                  source: true
+                  name: true
+                  info: true
+                  play_stop: true
+                  progress: true
+                  controls: true
+                  volume: true
+                  volume_level: true
+                  artwork_border: true
+                  icon: true
+                artwork: none
+                source: full
+                sound_mode: full
+                info: scroll
+                entity: media_player.spotifyplus_SpotifyAccountName
+                shortcuts:
+                  label: TRACKS
+                  columns: 1
+                  buttons:
+                    - name: THIS IS ME
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Kitchen
+                        uri: spotify:album:7ayBZIe1FHkNv0
+                        random_song: true
+                        shuffle: true
+                    - name: CALM MY CAT
+                      type: script
+                      id: script.calm_my_cat
+                    - name: BROKEN AND BEAUTIFUL - KELLY CLARKSON
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Kitchen
+                        uri: spotify:album:5UHs9Jq0Vy5E3
+                        random_song: true
+                        shuffle: true
+                    - name: BELIEVE - CHER
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Kitchen
+                        uri: spotify:track:2goLsvvODILDzee
+                        random_song: true
+                        shuffle: true
+                    - name: IT'S RAINING MEN - GERI HALLIWELL
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Kitchen
+                        uri: spotify:track:7q3qX7Ees3FZt
+                        random_song: true
+                        shuffle: true
+                    - name: LIVING IN COLOUR
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Kitchen
+                        uri: spotify:track:0GqBIo3rT8QtPA
+                        random_song: true
+                        shuffle: true
+                    - name: CALL ME MAYBE - CARLY RAE JEPSON
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Kitchen
+                        uri: spotify:track:20I6sIOMTCkB6
+                        random_song: true
+                        shuffle: true
+                    - name: SPICE UP YOUR LIFE - SPICE GIRLS
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Kitchen
+                        uri: spotify:track:5qGwqO0lkbBXw4
+                        random_song: true
+                        shuffle: true
+                    - name: DANCING ON MY OWN - ROBYN
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Kitchen
+                        uri: spotify:track:1Co1RNm1i1RL9v1
+                        random_song: true
+                        shuffle: true
+                    - name: MAMA MIA - ABBA
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Kitchen
+                        uri: spotify:track:2TxCwUlqaOH3TI
+                        random_song: true
+                        shuffle: true
+                style:
+                  left: 5%
+                  top: 2%
+                  width: 90%
+                  transform: scale(1.3,1.3)
+                card_mod:
+                  style: |
+                    ha-card {
+                      border: none !important;
+                      --card-background-color: rgba(255,255,255,0);
+                      max-height: 500px !important;
+                      min-height: 500px !important;
+                    }
+                    :host {
+                      --mini-media-player-button-color: rgba(68 115 158,1);
+                    }
+            image: /local/Transparent.png
+            aspect_ratio: 0%
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  --card-background-color: rgba(255,255,255,0);
+                }
+          Stations:
+            type: picture-elements
+            elements:
+              - type: custom:mini-media-player
+                description: track/song chooser
+                hide:
+                  power: true
+                  source: true
+                  name: true
+                  info: true
+                  play_stop: true
+                  progress: true
+                  controls: true
+                  volume: true
+                  volume_level: true
+                  artwork_border: true
+                  icon: true
+                artwork: none
+                source: full
+                sound_mode: full
+                info: scroll
+                entity: media_player.spotifyplus_SpotifyAccountName
+                shortcuts:
+                  label: STATIONS
+                  columns: 1
+                  buttons:
+                    - name: CHUM FM
+                      type: script
+                      id: script.chum_fm
+                    - name: GAY FM
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Kitchen
+                        uri: spotify:playlist:15QD96BzuiqaCdi
+                        random_song: true
+                        shuffle: true
+                    - name: CHILL ELECTRONIC
+                      type: service
+                      id: spotcast.start
+                      data:
+                        device_name: Kitchen
+                        uri: spotify:album:1DhwDHnA7g6MJ7g
+                        random_song: true
+                        shuffle: true
+                    - name: 98.1 CHFI
+                      type: script
+                      id: script.chfi
+                    - name: 99.1 VIRGIN
+                      type: script
+                      id: script.virgin
+                style:
+                  left: 5%
+                  top: "-37%"
+                  width: 90%
+                  transform: scale(1.3,1.3)
+                card_mod:
+                  style: |
+                    ha-card {
+                      border: none !important;
+                      --card-background-color: rgba(255,255,255,0);
+                      max-height: 500px !important;
+                      min-height: 500px !important;
+                    }
+                    :host {
+                      --mini-media-player-button-color: rgba(68 115 158,1);
+                    }
+            image: /local/Transparent.png
+            aspect_ratio: 0%
+            card_mod:
+              style: |
+                ha-card {
+                  border: none !important;
+                  --card-background-color: rgba(255,255,255,0);
+                }
+    style:
+      align: left
+      top: 13.5%
+      left: 0%
+      height: 200px
+      width: 8%
+      transform: scale(.8,.8)
+      animation: slideleft 0.5s ease normal forwards;
+      animation-play-state: running;
+    card_mod:
+      style: |
+        @keyframes slideright {
+          from {left: -27%;}
+          to {left: 13%;}
+        }
+        @keyframes slideleft {
+          from {left: 13%;}
+          to {left: -27px;}
+        }
+        :host {
+          {% if is_state("input_boolean.rx_stereo_menu", "on") %}
+            animation: slideright 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% else %}
+            animation: slideleft 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% endif %}
+          border: none;
+        }
+        :host {
+          scrollbar-width: none;
+          border-radius: 12px;
+          padding: 0px 0px 0px -45px;
+          #box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.30), 0 6px 20px 0 rgba(0, 0, 0, 0.20) !important;
+          border: none;
+          {% if is_state("media_player.spotify_SpotifyAccountName", "off") %}
+          scale: 0;
+          {% else %}
+          scale: 1;
+          {% endif %}
+        }
+  - type: custom:layout-card
+    description: Song Name & Artist Information
+    view_layout:
+      grid-area: text
+    layout_type: custom:grid-layout
+    layout:
+      justify-content: start
+      align-content: start
+      padding: 0px
+      max_cols: 1
+      grid-template-columns: 100%
+      grid-template-rows: 45px 45px 45px 45px
+      grid-template-areas: |
+        "title"
+        "artist"
+        "album"
+        "provider"
+    cards:
+      - type: custom:mushroom-template-card
+        view_layout:
+          grid-area: title
+        primary: ""
+        secondary: "{{ state_attr('media_player.spotify_SpotifyAccountName', 'media_title') }}"
+        icon: ""
+        entity: media_player.spotify_SpotifyAccountName
+        fill_container: true
+        layout: horizontal
+        tap_action:
+          action: none
+        hold_action:
+          action: none
+        double_tap_action:
+          action: none
+        card_mod:
+          style: |
+            ha-card {
+              --card-primary-font-size: 42px;
+              --card-secondary-font-size: 42px;
+              --card-primary-line-height: 48px;
+              --card-secondary-line-height: 48px;
+              --card-primary-color: #ffffffba;
+              --card-secondary-color: #ffffffba;
+              border: none !important;
+              box-shadow: none;
+              background: none;
+              margin: none;
+              padding: 0px 0px 0px 20px !important;
+            }
+      - type: custom:mushroom-template-card
+        view_layout:
+          grid-area: artist
+        primary: ""
+        secondary: "{{ state_attr('media_player.spotify_SpotifyAccountName', 'media_artist') }}"
+        icon: ""
+        entity: media_player.spotify_SpotifyAccountName
+        fill_container: true
+        layout: horizontal
+        tap_action:
+          action: none
+        hold_action:
+          action: none
+        double_tap_action:
+          action: none
+        card_mod:
+          style: |
+            ha-card {
+              --card-primary-font-size: 32px;
+              --card-secondary-font-size: 32px;
+              --card-primary-line-height: 38px;
+              --card-secondary-line-height: 38px;
+              --card-primary-color: #ffffffba;
+              --card-secondary-color: #ffffffba;
+              border: none !important;
+              box-shadow: none;
+              background: none;
+              margin: none;
+              padding: 0px 0px 0px 20px !important;
+            }
+      - type: custom:mushroom-template-card
+        view_layout:
+          grid-area: album
+        primary: ""
+        secondary: "{{ state_attr('media_player.spotify_SpotifyAccountName', 'media_album_name') }}"
+        icon: ""
+        entity: media_player.spotify_SpotifyAccountName
+        fill_container: true
+        layout: horizontal
+        tap_action:
+          action: none
+        hold_action:
+          action: none
+        double_tap_action:
+          action: none
+        card_mod:
+          style: |
+            ha-card {
+              --card-primary-font-size: 26px;
+              --card-secondary-font-size: 26px;
+              --card-primary-line-height: 28px;
+              --card-secondary-line-height: 28px;
+              --card-primary-color: #ffffffba;
+              --card-secondary-color: #ffffffba;
+              border: none !important;
+              box-shadow: none;
+              background: none;
+              margin: none;
+              padding: 0px 0px 0px 20px !important;
+            }
+    style:
+      align: left
+      top: "-2.5%"
+      left: 1%
+      height: 182px
+      width: 85%
+      transform: scale(.6,.6)
+      animation: slideleft 0.5s ease normal forwards;
+      animation-play-state: running;
+    card_mod:
+      style: |
+        @keyframes slideright {
+          from {left: -247%;}
+          to {left: 11.5%;}
+        }
+        @keyframes slideleft {
+          from {left: 11.5%;}
+          to {left: -247px;}
+        }
+        :host {
+          {% if is_state("input_boolean.rx_stereo_menu", "on") %}
+            animation: slideright 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% else %}
+            animation: slideleft 0.5s ease normal forwards !important;
+            animation-play-state: running !important;
+          {% endif %}
+          border: none;
+        }
+        :host {
+          scrollbar-width: none;
+          border-radius: 20px;
+          border: none;
+          padding: 0px 0px 0px 20px;
+          #box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.30), 0 6px 20px 0 rgba(0, 0, 0, 0.20) !important;
+          {% if is_state("media_player.spotify_SpotifyAccountName", "off") %}
+          scale: 0;
+          {% else %}
+          scale: 1;
+          {% endif %}
+        }
+  - type: custom:hui-element
+    card_type: vertical-stack
+	description: Volume Slider
+    cards:
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.rx_stereo_volume
+            state: "on"
+        card:
+          type: custom:my-slider-v2
+          entity: media_player.spotify_SpotifyAccountName
+          vertical: true
+          mode: volume
+          styles:
+            card:
+              - height: 290px
+              - width: 45px
+              - border-radius: 20px
+            container:
+              - border-radius: 20px
+              - box-shadow: >-
+                  0 4px 8px 0 rgba(0, 0, 0, 0.30), 0 6px 20px 0 rgba(0, 0, 0,
+                  0.20)
+            track: null
+            progress:
+              - background: rgb(96 112 127 / 100%)
+            thumb:
+              - background: "#ffffffbd"
+              - height: 4px
+              - box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 20%)
+          card_mod:
+            style: |
+              ha-card {
+                padding: 2px;
+                border: none;
+                margin: 0px 0px 89px 2px;
+                border: none;
+              }
+      - type: custom:mushroom-template-card
+        primary: "{{media_player.spotify_SpotifyAccountName:volume_level}}"
+        secondary: ""
+        icon: mdi:volume-medium
+        badge_icon: ""
+        icon_color: "#ffffffbd"
+        entity: input_boolean.rx_stereo_volume
+        layout: horizontal
+        hold_action:
+          action: call-service
+          service: media_player.volume_set
+          target:
+            entity_id: media_player.spotify_SpotifyAccountName
+          data:
+            volume_level: 0
+        double_tap_action:
+          action: call-service
+          service: media_player.volume_set
+          target:
+            entity_id: media_player.spotify_SpotifyAccountName
+          data:
+            volume_level: 0
+        tap_action:
+          action: toggle
+        card_mod:
+          style: |
+            :host {
+            {% if is_state("media_player.spotify_SpotifyAccountName", "off") %}
+              --mush-icon-symbol-size: 0.0em;
+            {% else %}
+              --mush-icon-symbol-size: 1.0em;
+            {% endif %}
+              border: none;
+            }
+            ha-card {
+              --chip-background: none !important;
+              width: fit-content;
+              background: none;
+              padding: 0px 0px 0px 0px !important;
+              border: none !important;
+              box-shadow: none !important;
+            }
+            mushroom-badge-icon {
+              --main-color: none !important;
+              border: none;
+            }
+            mushroom-shape-icon {
+              --shape-color: transparent !important;
+              --shape-color-disabled: transparent !important;
+              border: none;
+            }
+    style:
+      top: 22%
+      left: 78%
+      width: 5%
+      height: 8%
+      align-content: flex-end
+image: /local/Stereo.png
